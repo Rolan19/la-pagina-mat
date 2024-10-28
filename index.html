@@ -11,24 +11,41 @@
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
         }
+        
+        
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: auto;
+            z-index: 3;
+        }
+
         h1 {
             text-align: center;
             font-size: 3em;
             color: #2c3e50;
             margin-top: 30px;
-		}
-		h2 {
+        }
+        h2 {
             text-align: center;
             font-size: 2em;
             color: #2c3e50;
             margin-top: 30px;
         }
+
+        
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh;
+            flex: 1;
             padding: 20px;
         }
         .card-wrapper {
@@ -45,42 +62,25 @@
             transition: transform 0.3s;
             color: black;
         }
-        
-        .card.grado1::before {
+        .card.grado1::before, .card.grado2::before, .card.grado3::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('fresa.png'); 
             background-size: cover;
             background-position: center;
             z-index: 1;
+        }
+        .card.grado1::before {
+            background-image: url('fresa.png');
         }
         .card.grado2::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('siu.png'); 
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
+            background-image: url('siu.png');
         }
         .card.grado3::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('aeiou.png'); 
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
+            background-image: url('aeiou.png');
         }
         .card-content {
             position: relative;
@@ -114,14 +114,29 @@
         .card:hover {
             transform: translateY(-5px);
         }
+
+        
+        .banner {
+            background-color: #2c3e50;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.2em;
+            position: relative;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
-    <h1>MATEMATICAS POR GRADO</h1>
-    <h2>Operaciones Basicas</h2>
+    
+    <img src="Logo pajina.cdr" alt="Logo" class="logo">
+
+    <h1>MATEMÁTICAS POR GRADO</h1>
+    <h2>Operaciones Básicas</h2>
+
     <div class="container">
         <div class="card-wrapper">
-            
             <div class="card grado1">
                 <div class="card-content">
                     <h2>1º Grado</h2>
@@ -129,15 +144,13 @@
                     <a href="primer-grado.html">Entrar</a>
                 </div>
             </div>
-            
             <div class="card grado2">
                 <div class="card-content">
                     <h2>2º Grado</h2>
-                    <p>Multiplicacion</p>
+                    <p>Multiplicación</p>
                     <a href="segundo-grado.html">Entrar</a>
                 </div>
             </div>
-            
             <div class="card grado3">
                 <div class="card-content">
                     <h2>3º Grado</h2>
@@ -146,6 +159,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+  
+    <div class="banner">
+        © 2024 Matemáticas para Todos - Todos los derechos reservados.         <p>Mas Informacion: (504)9724-4389
     </div>
 </body>
 </html>
