@@ -50,6 +50,11 @@
         .problem {
             font-size: 1.5em;
         }
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            font-size: 1em;
+        }
         button {
             background-color: #27ae60;
             color: #fff;
@@ -62,10 +67,15 @@
         button:hover {
             background-color: #2ecc71;
         }
-        .answer {
-            display: none;
-            color: #e74c3c;
+        .result {
             font-size: 1.3em;
+            margin-left: 10px;
+        }
+        .correct {
+            color: #2ecc71;
+        }
+        .incorrect {
+            color: #e74c3c;
         }
         .back-btn {
             margin-top: 30px;
@@ -95,49 +105,59 @@
 </head>
 <body>
     <div class="container-wrapper">
-        
         <img src="palindex.gif" alt="GIF Izquierdo" class="gif">
-        
-        
         <div class="container">
             <h1>Matemáticas de 3º Grado</h1>
+
             <div class="operation">
                 <div class="problem">12 ÷ 3 =</div>
-                <button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-                <span class="answer">4</span>
-            </div>
-            <div class="operation">
-                <div class="problem">16 ÷ 2 =</div>
-<button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-<span class="answer">8</span>
-            </div>
-            <div class="operation">
-                <div class="problem">25 ÷ 5 =</div>
-<button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-<span class="answer">5</span>
-            </div>
-            <div class="operation">
-                <div class="problem">50 ÷ 5 =</div>
-<button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-<span class="answer">10</span>
-            </div>
-            <div class="operation">
-                <div class="problem">81 ÷ 9 =</div>
-<button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-<span class="answer">9</span>
-            </div>
-            <div class="operation">
-                <div class="problem">64 ÷ 8 =</div>
-<button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-<span class="answer">8</span>
-            </div>
-            <div class="operation">
-                <div class="problem">144 ÷ 12 =</div>
-<button onclick="mostrarRespuesta(this)">Mostrar Respuesta</button>
-<span class="answer">12</span>
+                <input type="number" id="respuesta1">
+                <button onclick="verificarRespuesta(4, 'respuesta1', 'resultado1')">Verificar</button>
+                <span class="result" id="resultado1"></span>
             </div>
 
-            
+            <div class="operation">
+                <div class="problem">16 ÷ 2 =</div>
+                <input type="number" id="respuesta2">
+                <button onclick="verificarRespuesta(8, 'respuesta2', 'resultado2')">Verificar</button>
+                <span class="result" id="resultado2"></span>
+            </div>
+
+            <div class="operation">
+                <div class="problem">25 ÷ 5 =</div>
+                <input type="number" id="respuesta3">
+                <button onclick="verificarRespuesta(5, 'respuesta3', 'resultado3')">Verificar</button>
+                <span class="result" id="resultado3"></span>
+            </div>
+
+            <div class="operation">
+                <div class="problem">50 ÷ 5 =</div>
+                <input type="number" id="respuesta4">
+                <button onclick="verificarRespuesta(10, 'respuesta4', 'resultado4')">Verificar</button>
+                <span class="result" id="resultado4"></span>
+            </div>
+
+            <div class="operation">
+                <div class="problem">81 ÷ 9 =</div>
+                <input type="number" id="respuesta5">
+                <button onclick="verificarRespuesta(9, 'respuesta5', 'resultado5')">Verificar</button>
+                <span class="result" id="resultado5"></span>
+            </div>
+
+            <div class="operation">
+                <div class="problem">64 ÷ 8 =</div>
+                <input type="number" id="respuesta6">
+                <button onclick="verificarRespuesta(8, 'respuesta6', 'resultado6')">Verificar</button>
+                <span class="result" id="resultado6"></span>
+            </div>
+
+            <div class="operation">
+                <div class="problem">144 ÷ 12 =</div>
+                <input type="number" id="respuesta7">
+                <button onclick="verificarRespuesta(12, 'respuesta7', 'resultado7')">Verificar</button>
+                <span class="result" id="resultado7"></span>
+            </div>
+
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/iA0fP4tL67s" 
                         title="Video de matemáticas" 
@@ -150,16 +170,21 @@
                 <a href="index.html">Volver al inicio</a>
             </div>
         </div>
-
-        
         <img src="mmm.gif" alt="GIF Derecho" class="gif">
     </div>
 
     <script>
-        function mostrarRespuesta(element) {
-            var answer = element.nextElementSibling;
-            answer.style.display = 'inline';
-            element.style.display = 'none';
+        function verificarRespuesta(correcta, inputId, resultId) {
+            var respuesta = document.getElementById(inputId).value;
+            var resultado = document.getElementById(resultId);
+            
+            if (respuesta == correcta) {
+                resultado.textContent = "Respuesta correcta";
+                resultado.className = "result correct";
+            } else {
+                resultado.textContent = "Respuesta incorrecta";
+                resultado.className = "result incorrect";
+            }
         }
     </script>
 </body>
